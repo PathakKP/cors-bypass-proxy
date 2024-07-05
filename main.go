@@ -84,15 +84,6 @@ func handleProxy(w http.ResponseWriter, r *http.Request) {
 		log.Printf("Error copying response body: %v", err)
 	}
 
-	// if resp.StatusCode == http.StatusOK {
-	// 	bodyBytes, err := io.ReadAll(resp.Body)
-	// 	if err != nil {
-	// 		log.Fatal(err)
-	// 	}
-	// 	bodyString := string(bodyBytes)
-	// 	log.Printf(bodyString)
-	// }
-
 	duration := time.Since(start)
 	log.Printf("%s %s -> %s %d (%v)", r.Method, r.URL.String(), proxyURL.String(), resp.StatusCode, duration)
 }
